@@ -1,0 +1,77 @@
+﻿@model WantToLearn.Models.Course_tbl
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h3>@Model.Name</h3>
+
+@if (User.IsInRole("Student"))
+{
+    @Html.Partial("Student_Sidebar")
+}
+else if (User.IsInRole("Lecturer"))
+{
+    @Html.Partial("Lecturer_Sidebar")
+}
+else
+{
+    @Html.Partial("Admin_Sidebar")
+}
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PDFs_Links)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PDFs_Links)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Level)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Level)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lecturer_tbl.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lecturer_tbl.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button id="Editbtn" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button> &emsp;
+    <button id="Listbtn" class="btn btn-success"><span class="glyphicon glyphicon-list"></span></button>
+</p>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var edit = $('#Editbtn');
+            edit.click(function () {
+                location.href = "/Course/Edit/" + @Model.ID.ToString();
+            })
+            var list = $('#Listbtn');
+            list.click(function () {
+                location.href = "/Course/Index";
+            })
+        });
+    </script>    
+}

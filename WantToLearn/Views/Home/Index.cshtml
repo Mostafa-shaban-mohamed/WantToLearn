@@ -2,30 +2,54 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+
+<div id="Title" style="text-align: center; margin-top: 150px;">
+    <p style="font-size: 50px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-style: normal; color: white;">If You Want To Learn, This is the place for you.</p>
+</div>
+<br />
+<div>
+    <button id="StudentBTN" class="btn"><p style="font-size: 25px; color: white;">Students, Start Here.</p></button>
+    <br />
+    <button id="LecturerBTN" class="btn"><p style="font-size: 25px; color: white;">Teachers, Start Here.</p></button>
+    <br />
+    <button id="AdminBTN" class="btn"><p style="font-size: 25px; color: white;">Admins, Start Here.</p></button>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var std = $('#StudentBTN');
+            std.click(function () {
+                location.href = "/Student/Create";
+            });
+            var lec = $('#LecturerBTN');
+            lec.click(function () {
+                location.href = "/Lecturer/Create";
+            });
+            var adm = $('#AdminBTN');
+            adm.click(function () {
+                location.href = "/Admin/Create";
+            });
+        });
+    </script>    
+}
+
+
+@section head{
+    <style>
+        body {
+            background-image: url('https://www.goalexandria.com/goalex2017/wp-content/uploads/2017/12/alex-reading-lexile-squashed.png');
+            background-size: 100%;
+        }
+        .btn {
+            width: 500px; height: 50px;
+            background-color: rgba(0, 0, 0, 0.50);
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .btn:hover{
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+    </style>    
+}

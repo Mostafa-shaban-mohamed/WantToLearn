@@ -58,7 +58,8 @@ html {
 }
 
 body {
-  margin: 0;
+    text-align: center;
+    margin: 0;
 }
 
 a:focus {
@@ -279,7 +280,8 @@ table {
   }
   .table td,
   .table th {
-    background-color: #fff !important;
+      text-align: center;
+    background-color: #0377f8 !important;
   }
   .btn > .caret,
   .dropup > .btn > .caret {
@@ -293,7 +295,8 @@ table {
   }
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid #ddd !important;
+      background-color: #0092ff !important;
+    border: 10px solid #ddd !important;
   }
 }
 
@@ -417,6 +420,41 @@ p {
   }
 }
 
+.sidenav {
+  text-align: right;
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 100px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 50px; /* Stay at the top */
+  left: 0;  
+  background-color: #222222; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 60px 8px 60px 8px;
+  text-decoration: solid;
+  font-size: 15px;
+  color: #fff;
+  display: block;
+  text-align: center;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+  background-color: black;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
 small {
   font-size: 85%;
 }
@@ -498,7 +536,7 @@ h6 small,
 h1,
 h2,
 h3 {
-  margin-top: 20px;
+  margin-top: 80px;
   margin-bottom: 10px;
 }
 
@@ -597,6 +635,7 @@ dl {
 
 dt,
 dd {
+     text-align:center;
   line-height: 1.428571429;
 }
 
@@ -605,6 +644,7 @@ dt {
 }
 
 dd {
+    text-align:center;
   margin-left: 0;
 }
 
@@ -1410,7 +1450,8 @@ table {
 }
 
 th {
-  text-align: left;
+    background-color: #428bca;
+  text-align: center;
 }
 
 .table {
@@ -1753,7 +1794,9 @@ textarea.form-control {
 }
 
 .form-group {
-  margin-bottom: 15px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .radio,
@@ -1956,19 +1999,24 @@ textarea.input-lg {
   }
 }
 
+.form-horizontal {
+    margin-top: 15%;
+}
+
 .form-horizontal .control-label,
 .form-horizontal .radio,
 .form-horizontal .checkbox,
 .form-horizontal .radio-inline,
 .form-horizontal .checkbox-inline {
+    text-align:center;
   padding-top: 7px;
   margin-top: 0;
   margin-bottom: 0;
 }
 
 .form-horizontal .form-group {
-  margin-right: -15px;
-  margin-left: -15px;
+    text-align: center;
+    
 }
 
 .form-horizontal .form-group:before,
@@ -4502,7 +4550,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-inverse {
   background-color: #222222;
-  border-color: #080808;
+  border-color: #222222;
 }
 
 .navbar-inverse .navbar-brand {
@@ -4526,7 +4574,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
   color: #ffffff;
-  background-color: transparent;
+  background-color: black;
 }
 
 .navbar-inverse .navbar-nav > .active > a,

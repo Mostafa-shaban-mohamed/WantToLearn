@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WantToLearn.Models.Student_tbl>
+@using WantToLearn.Models
+@{
+    ViewBag.Title = "StudentsByLevels";
+}
+
+<h2>StudentsByLevels</h2>
+
+<div>
+    @Html.DropDownList("Level", new SelectList(new Levels().GetLevels()),"Select Level",new { @class = "form-control" })
+</div>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Level)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Level)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+    </tr>
+}
+
+</table>
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var dropListResult = $("#Level");
+            dropListResult.change(function () {
+                //alert($(this).val());
+                location.href = "StudentsByLevels?level="+$(this).val();
+            });
+
+        });
+    </script>    
+}

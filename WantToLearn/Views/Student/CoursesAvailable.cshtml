@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WantToLearn.Models.Course_tbl>
+
+@{
+    ViewBag.Title = "CoursesAvailable";
+}
+
+<h3>Courses</h3>
+
+@Html.Partial("Student_Sidebar")
+
+@using (Html.BeginForm())
+{
+    <div style="text-align: left;" class="form-group form-inline">
+        @Html.TextBox("SearchName", null, new { @class = "form-control", @placeholder = "Search" })
+        <input class="btn btn-success" type="submit" value="Search" />
+        
+    </div>
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PDFs_Links)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lecturer_tbl.Name)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="/Course/Details/@item.ID">@item.Name</a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PDFs_Links)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lecturer_tbl.Name)
+        </td>
+    </tr>
+}
+
+</table>
+<ul class="pagination">
+    @for (int i = 0; i < int.Parse(Session["PagesCount"].ToString()); i++)
+    {
+        if (Session["CurrentP"].ToString() == (i + 1).ToString())
+        {
+            <li class="active"><a href="/Student/CoursesAvailable?currentPage=@(i+1)">@(i + 1)</a></li>
+        }
+        else
+        {
+            <li><a href="/Student/CoursesAvailable?currentPage=@(i+1)">@(i + 1)</a></li>
+        }
+
+    }
+</ul>
